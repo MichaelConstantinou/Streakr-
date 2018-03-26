@@ -2,14 +2,25 @@ img.logo {
   height: 100px;
 }
 
-header {
+div{
+  display: inline-block;
+}
+
+div h1{
+  padding: 0px;
+  margin: 0px;
+}
+  
+header{
+  width: 100%;
+  background-color: #f2d43b;
+  display: inline-block;
   position: relative;
 }
 
-.titles {
-  float: left;
-  right: 30px;
-  color: #F0D04F;
+#titles {
+  margin-top: 0px;
+  color: #black;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 50px;
   font-style: italic;
