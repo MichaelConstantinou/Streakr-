@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   get '/', to: 'streaks#index'
 
+  post '/streaks', to: 'streaks#create'
+
 end
