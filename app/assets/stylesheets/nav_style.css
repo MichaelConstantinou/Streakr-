@@ -1,14 +1,57 @@
+*{
+  text-align: center;
+}
+body{
+  margin: 0px;
+  padding-top: 0px;
+  background-color: #f2d43b;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+header div {
+  display: inline-block;
+}
+input {
+  width: 60%;
+  height: 25px;
+}
+form .field{
+  background-color: white;
+  width: 70%;
+  text-align: center;
+  display: inline-block;
+  align-content: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  /*padding: 20px;*/
+}
 img.logo {
   height: 100px;
+  margin: 10px;
+  margin: -20px;
+  padding-right: 20px;
+  display: inline-block;
+}
+.alert{
+  background: white;
+  width: 100%;
+  margin-top: 0px;
+  display: block;
 }
 
-div{
-  display: inline-block;
+div.actions input{
+  background-color: black;
+  text-align: center;
+  width: 70%;
+  color: white;
+  height: 40px;
+  margin-top: 10px;
 }
 
 div h1{
   padding: 0px;
-  margin: 0px;
+  margin: 15px;
 }
   
 header{
@@ -22,6 +65,6 @@ header{
   margin-top: 0px;
   color: #black;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  font-size: 50px;
+  font-size: 40px;
   font-style: italic;
 }
