@@ -4,7 +4,7 @@
     <title>Streakr</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'nav_style' %>
-    <!-- # <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> --> 
+    <!-- # <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -13,6 +13,16 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <header>
+      <div id="navbar">
+
+      <% if current_user %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Register", new_user_registration_path %>
+      <%= link_to "Login", new_user_session_path %>
+    <% end %>
+
+  </div>
     <div class="logo">
     <%= image_tag("homer_streakr.jpg", :class => "logo") %>
     </div>
@@ -21,12 +31,7 @@
     </div>
     </header>
 
-      <% if current_user %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Register", new_user_registration_path %>
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
+
     <%= yield %>
   </body>
 </html>
