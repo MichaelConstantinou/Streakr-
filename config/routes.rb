@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   get '/', to: 'streaks#index'
 
+
 end
