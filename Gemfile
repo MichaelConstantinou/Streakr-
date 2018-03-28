@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # devise gem
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'pry'

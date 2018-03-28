@@ -1,0 +1,11 @@
+<h2>Add new streak:</h2>
+<br>
+<p>Every day I</p>
+<%= form_for @new_streak, url: '/streaks'  do |f| %>
+    <%= f.label :aim %>
+    <%= f.text_area :aim %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.submit "create streak!" %>
+<% end %>
+<p>Ahmed we need you!</p>
