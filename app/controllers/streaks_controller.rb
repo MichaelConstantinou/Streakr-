@@ -15,12 +15,10 @@ class StreaksController < ApplicationController
     render 'streaks/index'
   end
 
-  def update 
-    #binding.pry
-    #@streak = Streak.find(params[:id])
-    #@streak.update_attributes(params[:frequency])
-    render 'streaks/index'
+  def update     
+    @streak = Streak.find(params[:streak][:id])
+    @streak.update_attributes(frequency: params[:streak][:frequency], id: params[:streak][:id])
+    redirect_to '/'
   end
-
 
 end

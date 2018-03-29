@@ -2,8 +2,10 @@ title: <%= link_to " #{streak.title}", "streak/#{streak.id}" %>
 <%=" | " + "aim: #{streak.aim}" + " | " %>
 <%= "created at: #{streak.created_at}"  + " | "  %>
 <%= streak.frequency %>
-<%= form_for streak, url: '/streaks/update'  do |f| %>
-  <%= f.hidden_field :frequency, value: (streak.frequency + 1) %>
-  <%= f.submit :update %>
-  
+<% @streak = streak %>
+
+<%= form_for(@streak, :url => streaks_path(@streak), :method => 'patch')  do |f| %>
+  <%= f.hidden_field :id, value: (@streak.id) %>
+  <%= f.hidden_field :frequency, value: (@streak.frequency + 1) %>  
+  <%= f.submit :update %>  
 <% end %>
