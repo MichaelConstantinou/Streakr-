@@ -1,7 +1,9 @@
 
-    <h1>Streakr! Homepage</h1>
-    <h2><%= current_user.email %></h2>
-    <p> welcome to your homepage </p>
-
-
-
+<h1>Streakr! Homepage</h1>
+<h2><%= current_user.email %></h2>
+<p> welcome to your homepage </p>
+<ul><% current_user.streaks.each do |streak| %>
+  <li><%= render partial: 'streak', object: streak %></li>
+  <% end %>
+</ul>
+<div><%= render partial: 'add' %></div>
