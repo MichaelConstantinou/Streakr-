@@ -5,7 +5,7 @@ class CreateStreaks < ActiveRecord::Migration[5.1]
       t.string :title, null: false
       t.text :aim, null: false
       t.integer :frequency
-      t.boolean :archived, default: false
+      t.date :achieved
       t.timestamps
     end
   end

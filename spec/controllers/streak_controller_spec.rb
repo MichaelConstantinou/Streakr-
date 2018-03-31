@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe StreaksController, type: :controller do
 
   before do
-    @new_user = User.create!(email: 'user@user.com', password: 'password2018')
+    @new_user = User.create!(email: 'newuser@user.com', password: 'password2018')
     sign_in(@new_user)
+    @new_user.streaks.create!(aim:'stop smoking', title: 'smoking', frequency: 0)
   end
 
   describe '#index' do
@@ -26,7 +27,20 @@ RSpec.describe StreaksController, type: :controller do
 
     it 'should create a new streak' do
       post :create, params: {streak: {aim: 'lose 1lb', title: 'lose weight'}}
-      expect(@new_user.streaks.first.aim).to eq 'lose 1lb'
+      expect(@new_user.streaks.last.aim).to eq 'lose 1lb'
     end
   end
+
+
+  # describe '#update' do
+  #   it 'should allow a user to update a streak for the first time' do
+  #     @new_user = User.create!(email: 'neweruser@user.com', password: 'password2018')
+  #     sign_in(@new_user)
+  #     @new_user.streaks.create!(id: 2, aim:'stop smoking', title: 'smoking', frequency: 0)
+  #     binding.pry
+  #     patch :update, params: {streak: {frequency: streak.frequency + 1, achieved: Date.today}}
+  #     expect(@new_user.streaks.first.frequency).to eq 1
+  #   end
+  # end
+
 end

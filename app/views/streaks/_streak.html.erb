@@ -1,10 +1,18 @@
 title: <%= link_to " #{streak.title}", "streak/#{streak.id}" %>
 <%=" | " + "aim: #{streak.aim}" + " | " %>
-<%= "created at: #{streak.created_at}"  + " | "  %>
-<%= streak.frequency %> days
+<%= "created at: #{streak.created_at}"  + " | current:"  %>
+<%= streak.frequency %>  days | previous record:
+<%= streak.chains.maximum('consecutive_days') %> days
 
-<%= form_for(streak, :url => streaks_path(streak), :method => 'patch')  do |f| %>
-  <%= f.hidden_field :id, value: (streak.id) %>
-  <%= f.hidden_field :frequency, value: (streak.frequency + 1) %>
-  <%= f.submit :update %>  
+
+<% if streak.achieved == nil || streak.achieved == Date.yesterday %>
+    <%= form_for(streak, :url => streaks_path(streak), :method => 'patch')  do |f| %>
+      <%= f.hidden_field :id, value: (streak.id) %>
+      <%= f.hidden_field :frequency, value: (streak.frequency + 1) %>
+      <%= f.hidden_field :achieved, value: (Date.today) %>
+      <%= f.submit :update %>
+    <% end %>
+<% elsif streak.achieved != Date.today %>
+    <% Chain.create!(streak_id: streak.id, consecutive_days: streak.frequency, chain_ended: streak.achieved) %>
+    <% streak.update_attributes(frequency: 0, achieved: nil) %>
 <% end %>

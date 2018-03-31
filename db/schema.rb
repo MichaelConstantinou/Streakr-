@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326135903) do
+ActiveRecord::Schema.define(version: 20180330165924) do
+
+  create_table "chains", force: :cascade do |t|
+    t.integer "streak_id"
+    t.integer "consecutive_days"
+    t.date "chain_ended"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["streak_id"], name: "index_chains_on_streak_id"
+  end
 
   create_table "streaks", force: :cascade do |t|
     t.integer "user_id"
     t.string "title", null: false
     t.text "aim", null: false
     t.integer "frequency"
-    t.boolean "archived", default: false
+    t.date "achieved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_streaks_on_user_id"
