@@ -1,6 +1,6 @@
 class StreaksController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @new_streak = Streak.new
     if current_user.streaks.length > 0
@@ -11,7 +11,6 @@ class StreaksController < ApplicationController
   end
 
   def create
-    #current_user.streaks.new(params[:streak])
     @new_streak = Streak.new(frequency: 0, user_id: current_user.id, aim: params[:streak][:aim], title: params[:streak][:title])
     if @new_streak.save
       redirect_to '/'
@@ -20,9 +19,9 @@ class StreaksController < ApplicationController
     end
   end
 
-  def update     
+  def update
     streak = Streak.find(params[:streak][:id])
-    streak.update_attributes(frequency: params[:streak][:frequency], id: params[:streak][:id])
+    streak.update_attributes(frequency: params[:streak][:frequency], id: params[:streak][:id], achieved: params[:streak][:achieved])
     redirect_to '/'
   end
 
