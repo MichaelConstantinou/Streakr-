@@ -1,8 +1,8 @@
-title: <%= link_to " #{streak.title}", "streak/#{streak.id}" %>
+title: <%= link_to " #{streak.title}", streak %>
 <%=" | " + "aim: #{streak.aim}" + " | " %>
 <%= "created at: #{streak.created_at}"  + " | current:"  %>
 <%= streak.frequency %>  days | previous record:
-<%= streak.chains.maximum('consecutive_days') %> days
+<%= "#{streak.chains.maximum('consecutive_days')} days | "%>
 
 
 <% if streak.achieved == nil || streak.achieved == Date.yesterday %>

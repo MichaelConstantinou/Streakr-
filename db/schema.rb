@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180330165924) do
     t.text "aim", null: false
     t.integer "frequency"
     t.date "achieved"
+    t.boolean "archive", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_streaks_on_user_id"

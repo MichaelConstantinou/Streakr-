@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   get '/', to: 'streaks#index'
 
   post '/streaks', to: 'streaks#create'
-  
+
   patch '/streaks.:id', to: 'streaks#update'
+
+  get '/streaks/:id', to: 'chains#index', as: 'streak'
+
 
 end
